@@ -111,4 +111,4 @@ def change_status(id):
 
 # Running the app
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run() 
