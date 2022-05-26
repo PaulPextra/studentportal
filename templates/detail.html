@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>Student Portal App - Students Profile</title>
+{% endblock title %}
+
+{% block content %}
+    <main>
+        <div class="row">
+            {% for student in profile %}
+            <div class="col-md-12">
+                <div class="col-md-2">
+                    <div class="profile">
+                        <img src="{{ url_for('static', filename='images/pic.png') }}" alt="Student Image">
+                        <h3>{{ student['FirstName'] }} {{ student['LastName'] }}</h3>
+                        <button>{{ student['Admission_Status'] }}</button>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="personal-info">
+                        <p id="intro">Personal Information</p>
+                        <p class="content">Email: {{ student['Email'] }}</p>
+                        <p class="content">Gender: {{ student['Gender'] }}</p>
+                        <p class="content">Date Of Birth: {{ student['DOB'] }}</p>
+                        <p class="content">Address: {{ student['Address'] }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-11">
+                <div class="other-info">
+                    <p id="intro">Other Information</p>
+                    <p id="content">State Of Origin: {{ student['State'] }}</p>
+                    <p id="content">Local Gov: {{ student['LGA'] }}</p>
+                </div>
+            </div>
+            <div class="col-md-11">
+                <div class="Academic-info">
+                    <p id="intro">Academic Related Information</p>
+                    <p id="content">Next Of Kin: {{ student['Next_Of_Kin'] }}</p>
+                    <p id="content">Jamb Score: {{ student['Jamb_Score'] }}</p>
+                    <p id="content">Status: {{ student['Admission_Status'] }}</p>
+                    <form action="" class="status-form">
+                        <label for="">Change Status: </label>
+                        <select class="change-status" id="{{ student['ID'] }}">
+                            <option value="">Change Status</option>
+                            <option value="undecided">Undecided</option>
+                            <option value="admitted">Admitted</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}
