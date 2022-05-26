@@ -1,4 +1,4 @@
-from flask import (Flask, render_template, url_for, request, flash)
+from flask import (Flask, render_template, request, flash)
 from flaskext.mysql import MySQL
 import pymysql.cursors
 import json
