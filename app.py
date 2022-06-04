@@ -9,10 +9,10 @@ app = Flask(__name__)
 app.secret_key = 'secret'
 
 # Database Configuration
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-app.config['MYSQL_DATABASE_DB'] = 'studentportal'
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
+app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-05.cleardb.net'
+app.config['MYSQL_DATABASE_DB'] = 'heroku_df137cfbc451757'
+app.config['MYSQL_DATABASE_USER'] = 'b15a5fcdd390c1'
+app.config['MYSQL_DATABASE_PASSWORD'] = '4341fd4b'
 
 # Initiating MySQL Database
 mysql = MySQL(app, cursorclass=pymysql.cursors.DictCursor)
