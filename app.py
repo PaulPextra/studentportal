@@ -78,7 +78,7 @@ def student_search():
     jambScore = req['jambScore']
     conn = mysql.get_db()
     cur = conn.cursor()
-    cur.execute('SELECT * FROM students WHERE FirstName = %s or LastName = %s or MiddleName = %s or Admission_Status = %s or Gender = %s or Jamb_Score = %s', (name, name, name, status, gender, jambScore))
+    cur.execute('SELECT * FROM students WHERE %s IN (FirstName, LastName, MiddleName)  OR Admission_Status = %s OR Gender = %s OR Jamb_Score = %s', (name, status, gender, jambScore))
     rv = cur.fetchall()
     cur.close()
         
@@ -107,3 +107,8 @@ def change_status(id):
     cur.close()
     
     return json.dumps('success')
+
+
+# Running the app
+if __name__ == '__main__':
+    app.run(debug=True, port=5000) 
