@@ -78,7 +78,7 @@ def student_search():
     jambScore = req['jambScore']
     conn = mysql.get_db()
     cur = conn.cursor()
-    cur.execute('SELECT * FROM students WHERE %s IN (FirstName, LastName, MiddleName)  OR Admission_Status = %s OR Gender = %s OR Jamb_Score = %s', (name, status, gender, jambScore))
+    cur.execute('SELECT * FROM students WHERE %s IN (FirstName, LastName, MiddleName) OR Admission_Status = %s OR Gender = %s OR Jamb_Score = %s', (name, status, gender, jambScore))
     rv = cur.fetchall()
     cur.close()
         
