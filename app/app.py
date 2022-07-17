@@ -9,12 +9,12 @@ app = Flask(__name__)
 app.secret_key = 'secret'
 
 # Database Configuration
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
-app.config['MYSQL_DATABASE_DB'] = 'studentportal'
-app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'password'
+app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-06.cleardb.net'
+app.config['MYSQL_DATABASE_DB'] = 'heroku_0c92e5c53ce1b91'
+app.config['MYSQL_DATABASE_USER'] = 'bf0de1951618b5'
+app.config['MYSQL_DATABASE_PASSWORD'] = '304cbd0f'
 
-# Initiating MySQL Database
+# Initializing MySQL Database
 mysql = MySQL(app, cursorclass=pymysql.cursors.DictCursor)
 
 @app.route('/')
@@ -107,5 +107,3 @@ def change_status(id):
     cur.close()
     
     return json.dumps('success')
-
-
