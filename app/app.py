@@ -2,17 +2,18 @@ from flask import (Flask, render_template, request, flash)
 from flaskext.mysql import MySQL
 import pymysql.cursors
 import json
+from decouple import config
 
 
 app = Flask(__name__)
 
-app.secret_key = 'secret'
+app.secret_key = config('SECRET_KEY')
 
 # Database Configuration
-app.config['MYSQL_DATABASE_HOST'] = 'us-cdbr-east-06.cleardb.net'
-app.config['MYSQL_DATABASE_DB'] = 'heroku_0c92e5c53ce1b91'
-app.config['MYSQL_DATABASE_USER'] = 'bf0de1951618b5'
-app.config['MYSQL_DATABASE_PASSWORD'] = '304cbd0f'
+app.config['MYSQL_DATABASE_HOST'] = config('DATABASE_HOST')
+app.config['MYSQL_DATABASE_DB'] = config('DATABASE_DB')
+app.config['MYSQL_DATABASE_USER'] = config('DATABASE_USER')
+app.config['MYSQL_DATABASE_PASSWORD'] = config('DATABASE_PASSWORD')
 
 # Initializing MySQL Database
 mysql = MySQL(app, cursorclass=pymysql.cursors.DictCursor)

@@ -8,6 +8,7 @@ gunicorn = "*"
 flask = "*"
 psycopg2 = "*"
 flask-mysql = "*"
+python-decouple = "*"
 
 [dev-packages]
 
