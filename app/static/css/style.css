@@ -21,6 +21,9 @@ a.navbar-brand{
 a.navbar-brand img{
     height: 100%;
 }
+a:hover.navbar-brand img{
+    background-color: #fff;
+}
 
 /* Flash Messages Style Rule */
 .flash_success {
